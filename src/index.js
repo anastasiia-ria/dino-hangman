@@ -35,7 +35,7 @@ function endGame() {
   if (win) {
     $(".endgame").html("You won!");
     $("#message-box").show();
-    $("#word").show();
+    $("#word-box").show();
     setTimeout(function () {
       startOver();
       $("#play-box").hide();
@@ -44,7 +44,7 @@ function endGame() {
 
   if (usedLettersArray.length == 10) {
     $(".endgame").html("You lost!");
-    $("#word").show();
+    $("#word-box").show();
     $("#message-box").show();
     setTimeout(function () {
       startOver();
@@ -61,10 +61,7 @@ function checkLetter(inputLetter) {
         showDummy();
       }
     }
-  } else if (usedLettersArray.includes(inputLetter)) {
-    $(".showErrors").text("You have already tried that letter");
-    $("#message-box").show();
-  } else {
+  } else if (!usedLettersArray.includes(inputLetter)) {
     let imgClass = $("#hangman").attr("class");
     $("#hangman").removeClass(imgClass);
     $("#hangman").addClass(changeClass(imgClass));
@@ -78,7 +75,7 @@ function startOver() {
   usedLettersArray = [];
   letterArray = [];
   word = "";
-  $("#word").hide();
+  $("#word-box").hide();
   $("#message-box").hide();
   $(".endgame").empty();
   $("#hangman").attr("class", "");

@@ -12,9 +12,9 @@ body {
 .container {
   width: 900px;
   margin: auto;
-  height: 100vh;
+  min-height: 900px;
   position: relative;
-  background-image: url("../assets/images/background.jpeg");
+  background-image: url("../assets/images/background.png");
   background-position: bottom left;
   background-repeat: no-repeat;
   background-size: 300px;
@@ -49,24 +49,31 @@ body {
 .man3 {
   background-image: url("../assets/images/3.png");
 }
+
 .man4 {
   background-image: url("../assets/images/4.png");
 }
+
 .man5 {
   background-image: url("../assets/images/5.png");
 }
+
 .man6 {
   background-image: url("../assets/images/6.png");
 }
+
 .man7 {
   background-image: url("../assets/images/7.png");
 }
+
 .man8 {
   background-image: url("../assets/images/8.png");
 }
+
 .man9 {
   background-image: url("../assets/images/9.png");
 }
+
 .man10 {
   background-image: url("../assets/images/10.png");
 }
@@ -99,15 +106,14 @@ h1 {
 }
 
 #play-box,
-#word-box,
-#word {
+#word-box {
   display: none;
 }
 
 #message-box {
-  padding: 20px;
+  padding: 10px 20px;
   position: absolute;
-  bottom: 520px;
+  bottom: 505px;
   right: 20px;
   background-color: #eee3d9;
   border: 5px solid #f488ac;
@@ -139,7 +145,7 @@ input {
 
 p,
 li {
-  font-size: 35px;
+  font-size: 30px;
 }
 
 #box {
