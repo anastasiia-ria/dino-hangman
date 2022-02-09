@@ -1,6 +1,4 @@
 import $ from "jquery";
-import "bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
 import "./css/styles.css";
 import Hangman from "./js/hangman.js";
 
@@ -10,7 +8,6 @@ let usedLettersArray = [];
 let letterArray = [];
 
 function showDummy() {
-  $("#dummy-box").show();
   $("ul#dummy-array").empty();
   for (let i = 0; i < letterArray.length; i++) {
     if (dummyArray[i] === undefined) {
@@ -37,6 +34,7 @@ function endGame() {
 
   if (win) {
     $(".endgame").html("You won!");
+    $("#message-box").show();
     setTimeout(function () {
       startOver();
       $("#play-box").hide();
@@ -45,7 +43,7 @@ function endGame() {
 
   if (usedLettersArray.length == 10) {
     $(".endgame").html("You lost!");
-    $("#word-box").show();
+    $("#message-box").show();
     setTimeout(function () {
       startOver();
       $("#play-box").hide();
@@ -63,13 +61,12 @@ function checkLetter(inputLetter) {
     }
   } else if (usedLettersArray.includes(inputLetter)) {
     $(".showErrors").text("You have already tried that letter");
+    $("#message-box").show();
   } else {
     let imgClass = $("#hangman").attr("class");
     $("#hangman").removeClass(imgClass);
     $("#hangman").addClass(changeClass(imgClass));
     usedLettersArray.push(inputLetter);
-    $("#used-letters-box").show();
-    $("#used-letters").append(`<li>${inputLetter}</li>`);
   }
   endGame();
 }
@@ -79,15 +76,16 @@ function startOver() {
   usedLettersArray = [];
   letterArray = [];
   word = "";
-  $("#word-box").hide();
-  $("#used-letters-box").hide();
-  $("#used-letters").empty();
+  $("#message-box").hide();
   $(".endgame").empty();
   $("#hangman").attr("class", "");
   $("#hangman").addClass("man0");
   $("#dummy-box").hide();
   $("#dummy-array").empty();
   $("#play-box").show();
+  $('input[name="letter"]').each(function () {
+    $(this).parent().removeClass("used");
+  });
 }
 
 $(document).ready(function () {
@@ -98,22 +96,23 @@ $(document).ready(function () {
 
     promise.then(
       function (response) {
-        word = response.replace(/[^A-Za-z']/g, "").toLowerCase();
-        $("word-box").show();
+        word = response.replace(/[^A-Za-z']/g, "").toUpperCase();
         $("#word").html(word);
         letterArray = word.split("");
         showDummy();
       },
       function (error) {
+        $("#message-box").show();
         $(".showErrors").text(`There was an error processing your request: ${error}`);
       }
     );
   });
 
-  $("#submit").click(function () {
+  $('input[name="letter"]').click(function () {
     $(".showErrors").empty();
-    const letter = $("input#letter").val().toLowerCase();
-    $("input#letter").val("");
+    $("#message-box").hide();
+    $(this).parent().addClass("used");
+    const letter = $(this).val();
     checkLetter(letter);
   });
 });
