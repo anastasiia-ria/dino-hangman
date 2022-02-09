@@ -4,36 +4,132 @@
     <title>Dino Hangman</title>
   </head>
   <body>
-    <h1>Dinosaur Hangman</h1>
-    <button id="play">Play</button>
-    <div id="play-box">
-      <label for="letter">Enter your letter:</label>
-      <br />
-      <input type="text" id="letter" maxlength="1" />
-      <br />
-      <button id="submit">Submit</button>
-
-      <div id="box">
+    <div class="container">
+      <h1>Dinosaur Hangman</h1>
+      <button id="play">Play</button>
+      <div id="play-box">
         <div id="hangman" class="man0"></div>
-        <div class="right">
-          <div id="used-letters-box">
-            <h3>Used Letters:</h3>
-            <ul id="used-letters"></ul>
+
+        <div id="box">
+          <div id="alphabet-box">
+            <h3>Select your letter:</h3>
+            <div id="alphabet">
+              <label>
+                <input type="radio" name="letter" value="A" />
+                A
+              </label>
+              <label>
+                <input type="radio" name="letter" value="B" />
+                B
+              </label>
+              <label>
+                <input type="radio" name="letter" value="C" />
+                C
+              </label>
+              <label>
+                <input type="radio" name="letter" value="D" />
+                D
+              </label>
+              <label>
+                <input type="radio" name="letter" value="E" />
+                E
+              </label>
+              <label>
+                <input type="radio" name="letter" value="F" />
+                F
+              </label>
+              <label>
+                <input type="radio" name="letter" value="G" />
+                G
+              </label>
+              <label>
+                <input type="radio" name="letter" value="H" />
+                H
+              </label>
+              <label>
+                <input type="radio" name="letter" value="I" />
+                I
+              </label>
+              <label>
+                <input type="radio" name="letter" value="J" />
+                J
+              </label>
+              <label>
+                <input type="radio" name="letter" value="K" />
+                K
+              </label>
+              <label>
+                <input type="radio" name="letter" value="L" />
+                L
+              </label>
+              <label>
+                <input type="radio" name="letter" value="M" />
+                M
+              </label>
+              <label>
+                <input type="radio" name="letter" value="N" />
+                N
+              </label>
+              <label>
+                <input type="radio" name="letter" value="O" />
+                O
+              </label>
+              <label>
+                <input type="radio" name="letter" value="P" />
+                P
+              </label>
+              <label>
+                <input type="radio" name="letter" value="Q" />
+                Q
+              </label>
+              <label>
+                <input type="radio" name="letter" value="R" />
+                R
+              </label>
+              <label>
+                <input type="radio" name="letter" value="S" />
+                S
+              </label>
+              <label>
+                <input type="radio" name="letter" value="T" />
+                T
+              </label>
+              <label>
+                <input type="radio" name="letter" value="U" />
+                U
+              </label>
+              <label>
+                <input type="radio" name="letter" value="V" />
+                V
+              </label>
+              <label>
+                <input type="radio" name="letter" value="W" />
+                W
+              </label>
+              <label>
+                <input type="radio" name="letter" value="X" />
+                X
+              </label>
+              <label>
+                <input type="radio" name="letter" value="Y" />
+                Y
+              </label>
+              <label>
+                <input type="radio" name="letter" value="Z" />
+                Z
+              </label>
+            </div>
           </div>
-          <div id="" dummy-box>
-            <h3>Guessed Letters:</h3>
-            <ul id="dummy-array"></ul>
-          </div>
+          <ul id="dummy-array"></ul>
+        </div>
+
+        <div id="message-box">
+          <h3>Correct word is:</h3>
+          <p id="word"></p>
+          <p class="showErrors"></p>
+          <p class="endgame"></p>
         </div>
       </div>
-
-      <div id="word-box">
-        <h3>Correct word is:</h3>
-        <p id="word"></p>
-      </div>
-
-      <p class="showErrors"></p>
-      <p class="endgame"></p>
     </div>
   </body>
 </html>
