@@ -35,6 +35,7 @@ function endGame() {
   if (win) {
     $(".endgame").html("You won!");
     $("#message-box").show();
+    $("#word").show();
     setTimeout(function () {
       startOver();
       $("#play-box").hide();
@@ -43,6 +44,7 @@ function endGame() {
 
   if (usedLettersArray.length == 10) {
     $(".endgame").html("You lost!");
+    $("#word").show();
     $("#message-box").show();
     setTimeout(function () {
       startOver();
@@ -76,6 +78,7 @@ function startOver() {
   usedLettersArray = [];
   letterArray = [];
   word = "";
+  $("#word").hide();
   $("#message-box").hide();
   $(".endgame").empty();
   $("#hangman").attr("class", "");

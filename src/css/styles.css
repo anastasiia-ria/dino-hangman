@@ -12,7 +12,7 @@ body {
 .container {
   width: 900px;
   margin: auto;
-  height: 100vh;
+  height: 900px;
   position: relative;
   background-image: url("../assets/images/background.jpeg");
   background-position: bottom left;
@@ -99,7 +99,8 @@ h1 {
 }
 
 #play-box,
-#word-box {
+#word-box,
+#word {
   display: none;
 }
 
